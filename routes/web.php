@@ -33,5 +33,6 @@ Route::get('/ingredients/{ingredient}/edit', [IngredientsController::class, 'edi
 Route::patch('/ingredients/{ingredient}', [IngredientsController::class, 'update']);
 
 Route::get('/reports', [ReportsController::class, 'index']);
+Route::post('/reports', [ReportsController::class, 'store']);
 
 // Route::resource('ingredients', IngredientsController::class);

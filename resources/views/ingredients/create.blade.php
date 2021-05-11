@@ -24,9 +24,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    
                     <h1 class="mt-3">Form Tambah Data Ingredient</h1>
-                    <form method="POST" action="/ingredients">
+                    
+                    
                         @csrf
                         <div class="mb-3">
                             <label for="kode_erp">Kode ERP</label>

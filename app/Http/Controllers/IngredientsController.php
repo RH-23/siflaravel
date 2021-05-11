@@ -38,8 +38,8 @@ class IngredientsController extends Controller
         $data['grade'] = Gradelevel::all();
         $data['kategori'] = Kategorilevel::all();
         $data['uom'] = Uomlevel::all();
-        return view('ingredients/create', ['data' => $data]);
-        // return $data;
+        // return view('ingredients/create', ['data' => $data]);
+        return $data;
     }
 
     /**

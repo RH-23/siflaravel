@@ -17,7 +17,7 @@
     <!-- /.container-fluid -->
 </section>
 
-<!-- Main content -->
+  <!-- Main content -->
   <section class="content">
     <!-- Default box -->
     <div class="card">
@@ -33,68 +33,24 @@
         </div>
       </div>
       <div class="card-body">
-        <h1>Halaman report</h1>
-        {{-- <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <a href="/ingredients/create" class="btn btn-primary my-2">Tambah Data Ingredient</a>
-                    
-                    @if (session('status1'))
-                    <div class="alert alert-success">
-                        {{ session('status1') }}
-                    </div>
-                    @endif
-
-                    @if (session('status2'))
-                    <div class="alert alert-warning">
-                        {{ session('status2') }}
-                    </div>
-                    @endif
-
-                    @if (session('status3'))
-                    <div class="alert alert-danger">
-                        {{ session('status3') }}
-                    </div>
-                    @endif
-                    
-                    <table class="table table-striped" id="tbl_ingredient">
-                        <thead class="table table-dark">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Kode ERP</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Kategori</th>
-                                <th scope="col">Uom</th>
-                                <th scope="col">Grade</th>
-                                <th scope="col">Kuantiti</th>
-                                <th scope="col">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($ingredients as $item)
-                            <tr>
-                                <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{ $item->kode_erp }}</td>
-                                <td>{{ $item->nama }}</td>
-                                <td>{{ $item->kategori->nama }}</td>
-                                <td>{{ $item->uom['nama'] }}</td>
-                                <td>{{ $item->grade['name'] }}</td>
-                                <td>{{ $item->kuantiti }}</td>
-                                <td>
-                                    <a href="/ingredients/{{ $item->id }}/edit" class="btn btn-info">Edit</a>
-                                    <form action="/ingredients/{{ $item->id }}" method="POST" class="d-inline">
-                                      @method('delete')
-                                      @csrf
-                                      <button type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin hapus data ini')">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+        <div class="box">
+          <h4>
+            <small>Add Ingredients</small>
+          </h4>
+          <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+              <form action="/reports/create" method="post">
+                <div class="form-group">
+                  <label for="count_add">Banyak Record Yang Akan Ditambahkan</label>
+                  <input type="text" name="count_add" id="count_add" maxlength="2" pattern="[0-9]+" class="form-control" required>
                 </div>
+                <div class="form-group pull-right">
+                  <input type="submit" name="generate" value="Generete" class="btn btn-success">
+                </div>
+              </form>
             </div>
-        </div> --}}
+          </div>
+        </div>
       </div>
       <!-- /.card-body -->
       <div class="card-footer text-center">

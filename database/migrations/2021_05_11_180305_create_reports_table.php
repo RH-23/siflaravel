@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropIngredientsTable extends Migration
+class CreateReportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,11 @@ class DropIngredientsTable extends Migration
      */
     public function up()
     {
-        Schema::drop('ingredients');
+        Schema::create('reports', function (Blueprint $table) {
+            $table->id();
+            $table->integer('kode')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class DropIngredientsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('reports');
     }
 }

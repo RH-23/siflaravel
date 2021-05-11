@@ -18,6 +18,7 @@ class CreateIngredientsTable extends Migration
             $table->bigInteger('kategori_id')->unsigned();
             $table->bigInteger('grade_id')->unsigned();
             $table->bigInteger('uom_id')->unsigned();
+            $table->bigInteger('report_id')->unsigned();
             $table->integer('kode_erp')->unique()->nullable();
             $table->string('nama');
             $table->string('kategori');
@@ -35,6 +36,9 @@ class CreateIngredientsTable extends Migration
         });
         Schema::table('ingredients', function (Blueprint $table) {
             $table->foreign('uom_id')->references('id')->on('uomlevels')->onDelete('cascade')->onUpdate('cascade');
+        });
+        Schema::table('ingredients', function (Blueprint $table) {
+            $table->foreign('report_id')->references('id')->on('reports')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
