@@ -2,9 +2,6 @@
 
 @section('css')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    {{-- <link rel="stylesheet" href="../../../datatables.net/js/jquery.dataTables.js">
-    <link rel="stylesheet" href="../../../datatables.net/js/jquery.dataTables.min.js"> --}}
-    
 @endsection
 
 @section('title', 'Ingredient')
@@ -72,7 +69,6 @@
                                 <th scope="col">Kategori</th>
                                 <th scope="col">Uom</th>
                                 <th scope="col">Grade</th>
-                                <th scope="col">Kuantiti</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -85,7 +81,6 @@
                                 <td>{{ $item->kategori->nama }}</td>
                                 <td>{{ $item->uom['nama'] }}</td>
                                 <td>{{ $item->grade['name'] }}</td>
-                                <td>{{ $item->kuantiti }}</td>
                                 <td>
                                     <a href="/ingredients/{{ $item->id }}/edit" class="btn btn-info">Edit</a>
                                     <form action="/ingredients/{{ $item->id }}" method="POST" class="d-inline">
@@ -118,8 +113,6 @@
 
 @push('scripts')
     <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    {{-- <script src="../../../datatables.net/js/jquery.dataTables.min.js"></script> --}}
-
     <script>
       $(document).ready( function () {
           $('#tbl_ingredient').DataTable();

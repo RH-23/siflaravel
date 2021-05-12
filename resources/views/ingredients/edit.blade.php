@@ -24,7 +24,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    
                     <h3 class="mt-3">Form Ubah Data Ingredient</h3>
                     <form method="POST" action="/ingredients/{{ $ingredient->id }}">
                         @method('patch')
@@ -89,16 +88,6 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="mb-3">
-                            <label for="Kuantiti">Kuantiti</label>
-                            <input type="number" class="form-control @error('kuantiti') is-invalid @enderror" id="kuantiti" placeholder="Masukkan kuantiti" name="kuantiti" value="{{ old('kuantiti', $ingredient->kuantiti) }}">
-                            @error('kuantiti')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-    
                        <button type="submit" class="btn btn-success mb-2">Ubah Data</button>
                     </form>
                 </div>

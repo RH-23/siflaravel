@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Ingredient extends Model
 {
     use HasFactory;
-    protected $fillable = ['kode_erp', 'nama', 'kuantiti', 'kategori_id', 'grade_id', 'uom_id'];
+    protected $fillable = ['kode_erp', 'nama', 'kategori_id', 'grade_id', 'uom_id'];
 
     public function kategori()
     {

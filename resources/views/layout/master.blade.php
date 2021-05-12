@@ -117,6 +117,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ url('/products') }}" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>Product</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ url('/reports') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Report</p>

@@ -25,8 +25,7 @@
             <div class="row">
                 <div class="col-8">
                     <h1 class="mt-3">Form Tambah Data Ingredient</h1>
-                    
-                    
+                    <form method="POST" action="/ingredients">
                         @csrf
                         <div class="mb-3">
                             <label for="kode_erp">Kode ERP</label>
@@ -88,16 +87,6 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="mb-3">
-                            <label for="Kuantiti">Kuantiti</label>
-                            <input type="number" class="form-control @error('kuantiti') is-invalid @enderror" id="kuantiti" placeholder="Masukkan kuantiti" name="kuantiti" value="{{ old('kuantiti') }}">
-                            @error('kuantiti')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-    
                        <button type="submit" class="btn btn-primary mb-2">Tambah Data</button>
                     </form>
                 </div>

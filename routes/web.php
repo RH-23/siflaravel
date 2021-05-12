@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BahanbakuController;
 use App\Http\Controllers\IngredientsController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,13 @@ Route::delete('/ingredients/{ingredient}', [IngredientsController::class, 'destr
 Route::get('/ingredients/{ingredient}/edit', [IngredientsController::class, 'edit']);
 Route::patch('/ingredients/{ingredient}', [IngredientsController::class, 'update']);
 
+Route::get('/products', [ProductsController::class, 'index']);
+Route::post('/products', [ProductsController::class, 'store']);
+
+
 Route::get('/reports', [ReportsController::class, 'index']);
 Route::post('/reports', [ReportsController::class, 'store']);
+
+
 
 // Route::resource('ingredients', IngredientsController::class);

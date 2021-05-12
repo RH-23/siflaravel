@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class ReportsController extends Controller
@@ -14,7 +15,9 @@ class ReportsController extends Controller
      */
     public function index()
     {
-        return view('reports/index');
+        $ingredients = Ingredient::all('id', 'nama');
+        return view('reports/index', compact('ingredients'));
+        // return $ingredients;
     }
 
     /**

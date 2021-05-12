@@ -38,8 +38,8 @@ class IngredientsController extends Controller
         $data['grade'] = Gradelevel::all();
         $data['kategori'] = Kategorilevel::all();
         $data['uom'] = Uomlevel::all();
-        // return view('ingredients/create', ['data' => $data]);
-        return $data;
+        return view('ingredients/create', ['data' => $data]);
+        // return $data;
     }
 
     /**
@@ -52,20 +52,18 @@ class IngredientsController extends Controller
     {
         // Cara Validasi
         $request->validate([
-            'kode_erp' => 'required|size:7',
+            'kode_erp' => 'required|unique:ingredients|size:7',
             'nama' => 'required',
             'kategori_id' => 'required',
             'uom_id' => 'required',
-            'grade_id' => 'required',
-            'kuantiti' => 'required'
+            'grade_id' => 'required'
         ], [
             'kode_erp.required' => 'Kode ERP tidak boleh kosong',
             'kode_erp.unique' => 'Tidak boleh sama',
             'nama.required' => 'Kategori tidak boleh kosong',
             'kategori_id.required' => 'Kategori tidak boleh kosong',
             'uom_id.required' => 'Uom tidak boleh kosong',
-            'grade_id.required' => 'Grade tidak boleh kosong',
-            'kuantiti.required' => 'Kuantiti tidak boleh kosong'
+            'grade_id.required' => 'Grade tidak boleh kosong'
         ]);
 
         Ingredient::create([
@@ -73,8 +71,7 @@ class IngredientsController extends Controller
             'nama' => $request->nama,
             'kategori_id' => $request->kategori_id,
             'uom_id' => $request->uom_id,
-            'grade_id' => $request->grade_id,
-            'kuantiti' => $request->kuantiti
+            'grade_id' => $request->grade_id
         ]);
 
         return redirect('/ingredients')->with('status1', 'Data Ingredient berhasil ditambahkan');
@@ -124,15 +121,13 @@ class IngredientsController extends Controller
             'nama' => 'required',
             'kategori_id' => 'required',
             'uom_id' => 'required',
-            'grade_id' => 'required',
-            'kuantiti' => 'required'
+            'grade_id' => 'required'
         ], [
             'kode_erp.required' => 'Kode ERP tidak boleh kosong',
             'nama.required' => 'Kategori tidak boleh kosong',
             'kategori_id.required' => 'Kategori tidak boleh kosong',
             'uom_id.required' => 'Uom tidak boleh kosong',
-            'grade_id.required' => 'Grade tidak boleh kosong',
-            'kuantiti.required' => 'Kuantiti tidak boleh kosong'
+            'grade_id.required' => 'Grade tidak boleh kosong'
         ]);
 
         // Cara mass assigment
@@ -142,8 +137,7 @@ class IngredientsController extends Controller
                 'nama' => $request->nama,
                 'kategori_id' => $request->kategori_id,
                 'uom_id' => $request->uom_id,
-                'grade_id' => $request->grade_id,
-                'kuantiti' => $request->kuantiti
+                'grade_id' => $request->grade_id
             ]);
 
         return redirect('/ingredients')->with('status2', 'Data Ingredient berhasil diubah');
