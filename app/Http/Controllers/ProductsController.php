@@ -19,9 +19,9 @@ class ProductsController extends Controller
         // $data['ingredients'] = Ingredient::all();
 
         $data['products'] = Product::all();
-        $data['ingredients'] = Ingredient::all('id', 'nama');
+        $data['ingredients'] = Ingredient::all('id', 'nama', 'kuantiti');
         return view('products/index', ['data' => $data]);
-        // return $ingredients;
+        // return $data;
     }
 
     /**
@@ -42,50 +42,24 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
 
         // Cara Validasi
-        $request->validate([
-            'kode' => 'required|unique:ingredients|size:7',
-            'product' => 'required',
-            'kuantiti' => 'required',
-            'ingredients_id' => 'required'
-        ], [
-            'kode.required' => 'Kode tidak boleh kosong',
-            'kode.unique' => 'Tidak boleh sama',
-            'product.required' => 'Product tidak boleh kosong',
-            'kuantiti.required' => 'Kuantiti tidak boleh kosong',
-            'ingredients_id.required' => 'Ingredients_id tidak boleh kosong'
-        ]);
+        // $request->validate([
+        //     'kode' => 'required|unique:ingredients|size:7',
+        //     'product' => 'required',
+        //     'ingredients_id' => 'required'
+        // ], [
+        //     'kode.required' => 'Kode tidak boleh kosong',
+        //     'product.required' => 'Product tidak boleh kosong',
+        //     'ingredients_id.required' => 'Ingredients_id tidak boleh kosong'
+        // ]);
 
         Product::create([
             'kode' => $request->kode,
             'product' => $request->product,
-            'kuantiti' => $request->kuantiti,
-            'ingredients_id' => $request->ingredients_id
         ]);
-        return $request;
-
-        // $inputValue = $request->all();
-
-        // $request->validate([
-        //     'kode' => 'required|unique:ingredients|size:7',
-        //     'product' => 'required',
-        //     'kuantiti' => 'required',
-        //     'ingredients_id' => 'required'
-        // ]);
-
-        // print_r($request->input('ingredients_id'));
-        // // exit();
-
-        // $succes = Product::create($inputValue);
-        // if ($succes) {
-        //     $request->session()->flash('status', 'succes');
-        // } else {
-        //     $request->session()->flash('error', 'something wend wrong');
-        // }
-        // return redirect()->back();
-
-
+        // return $request;
     }
 
     /**

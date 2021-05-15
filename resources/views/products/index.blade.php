@@ -2,8 +2,6 @@
 
 @section('css')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    {{-- <link rel="stylesheet" href="../../../datatables.net/js/jquery.dataTables.js">
-    <link rel="stylesheet" href="../../../datatables.net/js/jquery.dataTables.min.js"> --}}
 @endsection
 
 @section('title', 'Product')
@@ -81,11 +79,10 @@
                               <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $item->nama }}</td>
-                                <td><input type="text" id="" value="{{$item->kuantiti}}"></td>
-                                <td> <input type="checkbox" name="ingredients_id[]" class="check" value="{{ $item->id }}"></td>
-                                {{-- <td> <input type="checkbox" name="ingredients_id[]" class="check-form-input" value="1"></td> --}}
+                                <td><input type="text" id="" name="kuantiti" value="{{$item->kuantiti}}"></td>
+                                <td> <input type="checkbox" name="nama[]" class="check" value="{{ $item->nama }}"></td>
                               </tr>
-                            @endforeach
+                              @endforeach
                           </tbody>
                         </table>
                     </div>
@@ -106,7 +103,7 @@
 
 <script>
   function toggle(source) {
-    checkboxes = document.getElementsByName('ingredients_id[]');
+    checkboxes = document.getElementsByName('nama[]');
     for(var i=0, n=checkboxes.length;i<n;i++) {
       checkboxes[i].checked = source.checked;
     }
