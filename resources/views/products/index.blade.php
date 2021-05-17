@@ -79,8 +79,8 @@
                               <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $item->nama }}</td>
-                                <td><input type="text" id="" name="kuantiti" value="{{$item->kuantiti}}"></td>
-                                <td> <input type="checkbox" name="nama[]" class="check" value="{{ $item->nama }}"></td>
+                                <td><input type="text" id="" name="kuantiti[]" value="{{$item->kuantiti}}"></td>
+                                <td><input type="checkbox" name="id[]" class="check" value="{{ $item->id }}"></td>
                               </tr>
                               @endforeach
                           </tbody>
@@ -103,7 +103,7 @@
 
 <script>
   function toggle(source) {
-    checkboxes = document.getElementsByName('nama[]');
+    checkboxes = document.getElementsByName('id[]');
     for(var i=0, n=checkboxes.length;i<n;i++) {
       checkboxes[i].checked = source.checked;
     }

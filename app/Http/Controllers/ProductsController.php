@@ -19,7 +19,7 @@ class ProductsController extends Controller
         // $data['ingredients'] = Ingredient::all();
 
         $data['products'] = Product::all();
-        $data['ingredients'] = Ingredient::all('id', 'nama', 'kuantiti');
+        $data['ingredients'] = Ingredient::all();
         return view('products/index', ['data' => $data]);
         // return $data;
     }
@@ -42,24 +42,22 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         // Cara Validasi
-        // $request->validate([
-        //     'kode' => 'required|unique:ingredients|size:7',
-        //     'product' => 'required',
-        //     'ingredients_id' => 'required'
-        // ], [
-        //     'kode.required' => 'Kode tidak boleh kosong',
-        //     'product.required' => 'Product tidak boleh kosong',
-        //     'ingredients_id.required' => 'Ingredients_id tidak boleh kosong'
-        // ]);
+        $request->validate([
+            'kode' => 'required|unique:ingredients|size:7',
+            'product' => 'required'
+        ], [
+            'kode.required' => 'Kode tidak boleh kosong',
+            'product.required' => 'Product tidak boleh kosong'
+        ]);
 
         Product::create([
             'kode' => $request->kode,
-            'product' => $request->product,
+            'product' => $request->product
         ]);
-        // return $request;
+        return $request;
     }
 
     /**

@@ -52,7 +52,7 @@ class IngredientsController extends Controller
     {
         // Cara Validasi
         $request->validate([
-            'kode_erp' => 'required|unique:ingredients|size:7',
+            'kode_erp' => 'required|size:7|unique:ingredients|',
             'nama' => 'required',
             'kategori_id' => 'required',
             'uom_id' => 'required',
