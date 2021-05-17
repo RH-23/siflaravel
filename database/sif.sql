@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Bulan Mei 2021 pada 18.44
+-- Waktu pembuatan: 17 Bulan Mei 2021 pada 05.49
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -73,27 +73,30 @@ CREATE TABLE `ingredients` (
   `uom_id` bigint(20) UNSIGNED NOT NULL,
   `kode_erp` int(11) DEFAULT NULL,
   `nama` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kuantiti` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `ingredients`
 --
 
-INSERT INTO `ingredients` (`id`, `kategori_id`, `grade_id`, `uom_id`, `kode_erp`, `nama`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 2, 4010036, 'Bread Flour Emas / 25 kg', '2021-05-11 15:00:45', '2021-05-12 03:03:32'),
-(3, 1, 2, 2, 4030009, 'Egg / 15 kg (1 * 15 * 15) / R', '2021-05-11 15:02:41', '2021-05-11 15:02:41'),
-(4, 1, 2, 2, 4010045, 'Chocolate Filling Tulip / 1 kg', '2021-05-11 15:03:27', '2021-05-11 15:03:27'),
-(5, 1, 3, 2, 4010047, 'Milk Chocolate Compound Coating Colatta / 1 Kg', '2021-05-11 15:04:01', '2021-05-11 15:04:01'),
-(6, 1, 2, 2, 4010142, 'Kaya Filling Morin / 1 Kg', '2021-05-11 15:04:46', '2021-05-11 15:04:46'),
-(7, 1, 2, 2, 4020015, 'Raisin / 1 kg (1 * 10 * 10) / R', '2021-05-11 15:06:26', '2021-05-11 15:06:26'),
-(8, 3, 2, 2, 1010005, 'Bun Topping / 1 kg (1 * 1 * 1) / C', '2021-05-11 15:07:46', '2021-05-11 15:07:46'),
-(9, 1, 2, 2, 1010006, 'Butter Cream Filling / 0.5 kg (0.5 * 0.5 * 0.5) / C', '2021-05-11 15:08:15', '2021-05-11 15:08:15'),
-(10, 3, 1, 2, 1010010, 'Creamcheese Walnut Filling / 1 kg (1 * 1 * 1) / C', '2021-05-11 15:08:42', '2021-05-11 15:08:42'),
-(11, 3, 2, 2, 1010012, 'Caramel Filling / 0.5 kg (0.5 * 0.5 * 0.5) / C', '2021-05-11 15:09:12', '2021-05-11 15:09:12'),
-(12, 2, 2, 1, 3010004, 'Honey-Bon Maman (France-30 Gr) / 15 ea (1 * 15 * 60) / R', '2021-05-11 15:09:56', '2021-05-11 15:09:56'),
-(13, 2, 2, 1, 3010008, 'Number Candle No. 3 / 40 ea (1 * 40 * 40) / R', '2021-05-11 15:10:34', '2021-05-11 15:10:34');
+INSERT INTO `ingredients` (`id`, `kategori_id`, `grade_id`, `uom_id`, `kode_erp`, `nama`, `kuantiti`, `created_at`, `updated_at`, `product_id`) VALUES
+(3, 1, 1, 1, 4010036, 'Bread Flour Emas / 25 kg', 1, '2021-05-15 14:13:25', NULL, NULL),
+(4, 3, 2, 2, 4030009, 'Egg / 15 kg (1 * 15 * 15) / R', 2, '2021-05-15 14:13:25', NULL, NULL),
+(5, 1, 2, 2, 4010045, 'Chocolate Filling Tulip / 1 kg', NULL, '2021-05-15 08:08:27', '2021-05-15 08:12:04', NULL),
+(6, 1, 2, 2, 4010047, 'Milk Chocolate Compound Coating Colatta / 1 Kg', NULL, '2021-05-15 08:12:30', '2021-05-15 08:12:30', NULL),
+(7, 1, 2, 2, 4010142, 'Kaya Filling Morin / 1 Kg', NULL, '2021-05-15 08:13:42', '2021-05-15 08:13:42', NULL),
+(8, 1, 3, 2, 4020015, 'Raisin / 1 kg (1 * 10 * 10) / R', NULL, '2021-05-15 08:14:13', '2021-05-15 08:14:13', NULL),
+(9, 2, 2, 2, 1010005, 'Bun Topping / 1 kg (1 * 1 * 1) / C', NULL, '2021-05-15 08:14:49', '2021-05-15 08:14:49', NULL),
+(10, 3, 2, 2, 1010006, 'Butter Cream Filling / 0.5 kg (0.5 * 0.5 * 0.5)', NULL, '2021-05-15 08:15:18', '2021-05-15 08:15:30', NULL),
+(11, 3, 1, 2, 1010010, 'Creamcheese Walnut Filling / 1 kg (1 * 1 * 1)', NULL, '2021-05-15 08:16:03', '2021-05-15 08:16:03', NULL),
+(12, 3, 2, 2, 1010012, 'Caramel Filling / 0.5 kg (0.5 * 0.5 * 0.5)', NULL, '2021-05-15 08:16:39', '2021-05-15 08:16:39', NULL),
+(13, 2, 1, 1, 3010004, 'Honey-Bon Maman (France-30 Gr) / 15 ea (1 * 15 * 6)', NULL, '2021-05-15 08:17:09', '2021-05-15 08:17:09', NULL),
+(14, 2, 3, 1, 3010008, 'Number Candle No. 3 / 40 ea (1 * 40 * 40)', NULL, '2021-05-15 08:17:42', '2021-05-15 08:17:42', NULL),
+(16, 2, 3, 1, 5555555, 'tes', NULL, '2021-05-16 20:45:21', '2021-05-16 20:45:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -151,7 +154,19 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2021_05_11_222517_add_column_kuantiti_reports_table', 8),
 (16, '2021_05_11_222806_add_column_ingredient_id_reports_table', 9),
 (17, '2021_05_12_085312_drop_column_kuantiti_ingredients_table', 10),
-(18, '2021_05_12_093258_rename_reports_table_to_products_table', 11);
+(18, '2021_05_12_093258_rename_reports_table_to_products_table', 11),
+(19, '2021_05_13_022117_create_column_kuantiti_ingredients_table', 12),
+(20, '2021_05_13_023030_drop_column_kuantiti_reports_table', 13),
+(21, '2021_05_15_095115_drop_column_product_id_ingredients_table', 14),
+(22, '2021_05_15_132108_drop_table_products', 15),
+(23, '2021_05_15_132253_create_products_table', 16),
+(24, '2021_05_15_133911_add_column_product_id_ingredients_table', 17),
+(25, '2021_05_15_134926_drop_table_ingredients', 18),
+(26, '2021_05_15_135143_create2_ingredients_table', 19),
+(27, '2021_05_15_140552_drop2_column_kategori_uom_grade_ingredients_table', 20),
+(28, '2021_05_15_145208_change_column_product_id_ingredients_table', 21),
+(29, '2021_05_15_150603_drop2_column_product_id_ingredients_table', 22),
+(30, '2021_05_15_150919_add2_column_product_id_ingredients_table', 23);
 
 -- --------------------------------------------------------
 
@@ -174,12 +189,18 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `kode` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
   `product` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kuantiti` int(11) NOT NULL,
-  `ingredients_id` bigint(20) UNSIGNED NOT NULL
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `products`
+--
+
+INSERT INTO `products` (`id`, `kode`, `product`, `created_at`, `updated_at`) VALUES
+(1, 1234567, 'Roti Bagguete', '2021-05-15 14:11:44', NULL),
+(2, 2345678, 'Premium Milk Pann Bread', '2021-05-15 14:11:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -269,7 +290,7 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `reports_ingredients_id_foreign` (`ingredients_id`);
+  ADD UNIQUE KEY `products_kode_unique` (`kode`);
 
 --
 -- Indeks untuk tabel `uomlevels`
@@ -304,7 +325,7 @@ ALTER TABLE `gradelevels`
 -- AUTO_INCREMENT untuk tabel `ingredients`
 --
 ALTER TABLE `ingredients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategorilevels`
@@ -316,13 +337,13 @@ ALTER TABLE `kategorilevels`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `uomlevels`
@@ -347,12 +368,6 @@ ALTER TABLE `ingredients`
   ADD CONSTRAINT `ingredients_grade_id_foreign` FOREIGN KEY (`grade_id`) REFERENCES `gradelevels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ingredients_kategori_id_foreign` FOREIGN KEY (`kategori_id`) REFERENCES `kategorilevels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `ingredients_uom_id_foreign` FOREIGN KEY (`uom_id`) REFERENCES `uomlevels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `reports_ingredients_id_foreign` FOREIGN KEY (`ingredients_id`) REFERENCES `ingredients` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
